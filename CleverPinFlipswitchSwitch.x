@@ -12,6 +12,7 @@
 extern void GSSendAppPreferencesChanged(CFStringRef bundleID, CFStringRef key);
 #endif
 
+
 @implementation CleverPinFlipswitchSwitch
 
 -(void)updatePrefs{
@@ -31,18 +32,16 @@ extern void GSSendAppPreferencesChanged(CFStringRef bundleID, CFStringRef key);
 
         if (newState == FSSwitchStateOn){
        [settings setObject:[NSNumber numberWithBool:YES]forKey:@"Enabled"];
-       [settings writeToFile:[NSString stringWithFormat:@"%@/Library/Preferences/%@", NSHomeDirectory(), @"com.filippobiga.cleverpin.plist"] atomically:YES];
-       [self updatePrefs];
+
   }
         else if (newState == FSSwitchStateOff){
         [settings setObject:[NSNumber numberWithBool:NO]forKey:@"Enabled"];
-       	[settings writeToFile:[NSString stringWithFormat:@"%@/Library/Preferences/%@", NSHomeDirectory(), @"com.filippobiga.cleverpin.plist"] atomically:YES];
-        [self updatePrefs];
         }
         else {
         return;
         } 
-
+       [settings writeToFile:[NSString stringWithFormat:@"%@/Library/Preferences/%@", NSHomeDirectory(), @"com.filippobiga.cleverpin.plist"] atomically:YES];
+       [self updatePrefs];
 }
 
 @end
