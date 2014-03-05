@@ -1,6 +1,6 @@
 ARCHS = armv7 armv7s arm64
 
-TARGET = iphone:clang:latest:5.0
+TARGET = iphone:clang:latest:7.0
 
 THEOS_BUILD_DIR = Packages
 
@@ -10,6 +10,7 @@ BUNDLE_NAME = CleverPinFlipswitch
 CleverPinFlipswitch_CFLAGS = -fobjc-arc
 CleverPinFlipswitch_FILES = CleverPinFlipswitchSwitch.x
 CleverPinFlipswitch_FRAMEWORKS = Foundation UIKit
+CleverPinFlipswitch_PRIVATE_FRAMEWORKS = GraphicsServices
 CleverPinFlipswitch_LDFLAGS = -weak_library libflipswitch.dylib
 CleverPinFlipswitch_INSTALL_PATH = /Library/Switches
 
