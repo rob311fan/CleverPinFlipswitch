@@ -1,8 +1,8 @@
 Package: com.rob311.cleverpinflipswitch
 Name: CleverPin Flipswitch
-Depends: mobilesubstrate, com.a3tweaks.flipswitch, firmware (>= 5.0)
-Version: 0.0.1
+Depends: mobilesubstrate, com.a3tweaks.flipswitch, firmware (>= 5.0), com.filippobiga.cleverpin
+Version: 1.0.0
 Architecture: iphoneos-arm
-Description: A Simple Switch for the Flipswitch API!
+Description: Flipswitch for Cleverpin
 Author: rob311
 Section: Addons (Flipswitch)
