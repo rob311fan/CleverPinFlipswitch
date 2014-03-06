@@ -44,4 +44,7 @@ extern void GSSendAppPreferencesChanged(CFStringRef bundleID, CFStringRef key);
        [self updatePrefs];
 }
 
+- (NSString *)titleForSwitchIdentifier:(NSString *)switchIdentifier {
+        return @"CleverPin";
+}
 @end
