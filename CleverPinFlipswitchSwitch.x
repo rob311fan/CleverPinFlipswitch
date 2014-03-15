@@ -25,7 +25,7 @@ static BOOL isDisabled;
 }
 
 - (NSString *)titleForSwitchIdentifier:(NSString *)switchIdentifier {
-        return @"CleverPin";
+    return @"CleverPin";
 }
 
 - (FSSwitchState)stateForSwitchIdentifier:(NSString *)switchIdentifier {
@@ -37,15 +37,15 @@ static BOOL isDisabled;
 
 - (void)applyState:(FSSwitchState)newState forSwitchIdentifier:(NSString *)switchIdentifier {
 
-        if (newState == FSSwitchStateOn){
-        isDisabled = YES;
-        }
-        else if (newState == FSSwitchStateOff){
-        isDisabled = NO; 
-        }
-        else {
-        return;
-        }   
-      [self updatePrefs];
+    if (newState == FSSwitchStateOn){
+    isDisabled = YES;
+    }
+    else if (newState == FSSwitchStateOff){
+    isDisabled = NO; 
+    }
+    else {
+    return;
+    }   
+  [self updatePrefs];
 }
 @end
