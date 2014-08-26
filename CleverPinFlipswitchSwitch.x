@@ -5,6 +5,9 @@
 //  Created by rob311 on 16.02.2014.
 //  Copyright (c) 2014 rob311. All rights reserved.
 //
+#import <FSSwitchDataSource.h>
+#import "FSSwitchPanel.h"
+#import <objc/runtime.h>
 #import <notify.h>
 #import "CleverPinFlipswitchSwitch.h"
 
@@ -26,6 +29,19 @@ static BOOL isDisabled;
 
 - (NSString *)titleForSwitchIdentifier:(NSString *)switchIdentifier {
     return @"CleverPin";
+}
+
+static void CleverPinFlipswitchSwitchChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    [[FSSwitchPanel sharedPanel] stateDidChangeForSwitchIdentifier:[NSBundle bundleForClass:[CleverPinFlipswitchSwitch class]].bundleIdentifier];
+}
+
+
+
++ (void)load
+{
+    CFNotificationCenterRef center = CFNotificationCenterGetDarwinNotifyCenter();
+    CFNotificationCenterAddObserver(center, NULL, CleverPinFlipswitchSwitchChanged, CFSTR("com.filippobiga.cleverpin.reloadprefs"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }
 
 - (FSSwitchState)stateForSwitchIdentifier:(NSString *)switchIdentifier {
